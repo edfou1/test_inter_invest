@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+    database:
+        image: mariadb
+        container_name: test_db
+        restart: always
+        ports:
+            - ${DB_PORT}:3306
+        command: --sql_mode=""
+        volumes:
+            - ./shared/mariadb/data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    php:
+        container_name: test_app
+        build:
+            context: ./php
+        ports:
+            - ${APACHE_PORT}:80
+        volumes:
+            - ../app-test-inter-invest:/var/www/html
+            - ./apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+        depends_on:
+            - database
