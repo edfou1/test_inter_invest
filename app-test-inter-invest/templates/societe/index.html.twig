@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <div class="row">
+            <a role="button" href="{{ url('app_list_societe', {'page': 1, 'pageSize': 10}) }}" class="text-center btn btn-primary col-1 mt-2 ms-4">Retour</a>
+            <h1 class="text-center p-4 ">{{ data.societeInfo.nom }}</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                {% include 'societe/update_modal.html.twig' %}
+                {% include 'societe/info.html.twig' with { 'info': data.societeInfo } %}
+                <div class="row">
+                    {% include 'societe/list_adresses_crud.html.twig' with { 'adresses': data.societeInfo.adresses } %}
+                </div>
+                <div class="row">
+                    {% include 'societe/list_versions.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('JS/societe.js') }}"></script>
+{% endblock %}

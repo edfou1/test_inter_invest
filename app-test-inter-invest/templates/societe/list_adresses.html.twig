@@ -1,0 +1,14 @@
+<div class="row">
+    <h5 class="col align-self-start">Adresses</h5>
+    {% block add %}{% endblock %}
+</div>
+<ul class="list-group" style="padding-right: 0;">
+    {% for adresse in adresses %}
+        <li class="list-group-item">
+            <div class="row">
+                <p class="col align-self-start">{{ adresse.numero }} {{ adresse.type_voie }} {{ adresse.nom_voie }}, {{ adresse.cp }} {{ adresse.ville }}</p>
+                {% block update %}{% endblock %}
+            </div>
+        </li>
+    {% endfor %}
+</ul>

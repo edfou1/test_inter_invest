@@ -1,0 +1,37 @@
+<div class="modal fade" id="{% block idModal %}addAdresseModal{% endblock %}" tabindex="-1" aria-labelledby="{{ block('idModal') }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Adresse</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form
+                        {% block action %}action="{{ url('app_add_adresse', { 'idSocieteInfo': data.societeInfo.id }) }}"{% endblock %}
+                        {% block method %}method="POST"{% endblock %}
+                        {% block data %}{% endblock %}
+                        id="{% block idForm %}addAdresseForm{% endblock %}"
+                        name="adresseForm"
+                        {% block classForm %}{% endblock %}
+                >
+                    <label class="row" for="{% block idNumero %}addAdresseNumero{% endblock %}">Numéro:</label>
+                    <input class="form-control" type="text" id="{{ block('idNumero') }}" {% block valueNumero %}{% endblock %} name="numero" required>
+                    <label class="row" for="{% block idTypeVoie %}addAdresseTypeVoie{% endblock %}">Type de voie:</label>
+                    <input class="form-control" type="text" id="{{ block('idTypeVoie') }}" {% block valueTypeVoie %}{% endblock %} name="typeVoie" required>
+                    <label class="row" for="{% block idNomVoie %}addAdresseNomVoie{% endblock %}">Nom de la voie:</label>
+                    <input class="form-control" type="text" id="{{ block('idNomVoie') }}" {% block valueNomVoie %}{% endblock %} name="nomVoie" required>
+                    <label class="row" for="{% block idCp %}addAdresseCp{% endblock %}">Code postal:</label>
+                    <input class="form-control" type="number" id="{{ block('idCp') }}" {% block valueCp %}{% endblock %} name="cp" required>
+                    <label class="row" for="{% block idVille %}addAdresseVille{% endblock %}">Ville:</label>
+                    <input class="form-control" type="text" id="{{ block('idVille') }}" {% block valueVille %}{% endblock %} name="ville" required>
+                </form>
+                <div class ="row pt-1" id="{% block idError %}addAdresseError{% endblock %}">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary col-2" data-bs-dismiss="modal">Annuler</button>
+                <input type="submit" form="{{ block('idForm') }}" name="adresseSubmit" class="btn btn-primary col-2" value="Envoyer">
+            </div>
+        </div>
+    </div>
+</div>

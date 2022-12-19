@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <button
+            id="updateModalButton"
+            data-get-url="{{ url('app_get_formes_juridiques') }}"
+            data-forme-id="{{ data.societeInfo.forme_juridique.id }}"
+            type="button" class="btn btn-primary col-3"
+            data-bs-toggle="modal"
+            data-bs-target="#updateModal"
+    >
+        Modifier la société
+    </button>
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="updateModalLabel">Société</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url('app_update_societe', { 'id': data.id}) }}" method="PUT" id="updateSocieteForm">
+                        <label for="updateFormeJuridique">Forme juridique:</label>
+                        <select id="updateFormeJuridique" name="formeJuridique" class="form-select" form="updateSocieteForm">
+                        </select>
+                        <label class="row" for="updateNom">Nom:</label>
+                        <input class="form-control" type="text" id="updateNom" value="{{ data.societeInfo.nom }}" name="nom" required>
+                        <label class="row" for="updateSiren">Siren:</label>
+                        <input class="form-control" type="number" id="updateSiren" name="siren" value="{{ data.societeInfo.siren }}" required>
+                        <label class="row" for="updateVilleImmat">Ville d'immatriculation:</label>
+                        <input class="form-control" type="text" id="updateVilleImmat" name="villeImmat" value="{{ data.societeInfo.ville_immatriculation}}" required>
+                        <label class="row" for="updateDateImmat">Date d'immatriculation:</label>
+                        <input class="form-control" type="date" id="updateDateImmat" name="dateImmat" value="{{ data.societeInfo.date_immatriculation | date('Y-m-d') }}" required>
+                        <label class="row" for="updateCapital">Capital:</label>
+                        <input class="form-control" type="number" id="updateCapital" name="capital" value="{{ data.societeInfo.capital }}" required>
+                    </form>
+                    <div class ="row pt-1" id="updateError">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary col-2" data-bs-dismiss="modal">Annuler</button>
+                    <input type="submit" form="updateSocieteForm" id="updateSubmit" class="btn btn-primary col-2" value="Envoyer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

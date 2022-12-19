@@ -1,0 +1,31 @@
+<button
+        id="archivageModalButton"
+        type="button"
+        class="btn btn-primary col-3 m-1 align-self-start"
+        data-bs-toggle="modal"
+        data-bs-target="#archivageModal"
+>
+    Archivage
+</button>
+<div class="modal fade" id="archivageModal" tabindex="-1" aria-labelledby="archivageModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="archivageModalLabel">Archivage d'une version de la société</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url('app_add_societe_version', {'id': data.id}) }}" method="POST" id="archivageForm">
+                    <label class="row" for="archivageDate">Date d'archivage:</label>
+                    <input class="form-control" type="datetime-local" id="archivageDate" name="date" step="1" required>
+                </form>
+                <div class ="row pt-1" id="archivageError">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary col-2" data-bs-dismiss="modal">Annuler</button>
+                <input type="submit" form="archivageForm" id="archivageSubmit" class="btn btn-primary col-2" value="Envoyer">
+            </div>
+        </div>
+    </div>
+</div>

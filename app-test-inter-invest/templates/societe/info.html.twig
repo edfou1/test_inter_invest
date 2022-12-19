@@ -1,0 +1,32 @@
+<div class="row row-cols-2 p-1">
+    <div class="card ">
+        <div class="card-body">
+            <h5 class="card-title">Siren</h5>
+            <p class="card-text"> {{ info.siren }}</p>
+        </div>
+    </div>
+    <div class="card p-1">
+        <div class="card-body">
+            <h5 class="card-title">Capital</h5>
+            <p class="card-text"> {{ info.capital }} €</p>
+        </div>
+    </div>
+    <div class="card p-1">
+        <div class="card-body">
+            <h5 class="card-title">Ville d'immatriculation</h5>
+            <p class="card-text"> {{ info.ville_immatriculation }}</p>
+        </div>
+    </div>
+    <div class="card p-1">
+        <div class="card-body">
+            <h5 class="card-title">Date d'immatriculation</h5>
+            <p class="card-text"> {{ info.date_immatriculation | date('d/m/Y') }}</p>
+        </div>
+    </div>
+    <div class="card p-1">
+        <div class="card-body">
+            <h5 class="card-title">Forme juridique</h5>
+            <p class="card-text"> {{ info.forme_juridique.libelle }}</p>
+        </div>
+    </div>
+</div>

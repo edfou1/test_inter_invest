@@ -1,0 +1,20 @@
+<div class="row">
+    <h4 class="col align-self-start">Versions</h4>
+    {% include 'societe/archivage_modal.html.twig' %}
+</div>
+<ul class="list-group" style="padding-right: 0;">
+    {% for societe in data.societeVersion %}
+        <li class="list-group-item">
+            <div class="row">
+                <h5 class="text-center">{{ societe.societe_info.nom }}</h5>
+                <p>Date d'archivage : {{ societe.date_archivage | date('d/m/Y H:i:s') }}</p>
+            </div>
+            <div class="row justify-content-center">
+                {% include 'societe/info.html.twig' with { 'info': societe.societe_info } only %}
+            </div>
+            <div class="row">
+                {% include 'societe/list_adresses.html.twig' with { 'adresses': societe.societe_info.adresses } only %}
+            </div>
+        </li>
+    {% endfor %}
+</ul>

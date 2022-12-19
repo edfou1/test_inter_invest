@@ -1,0 +1,1 @@
+{"version":1,"defects":{"App\\Tests\\Service\\SocieteVersionServiceTest::testSocieteVersionAddNoDate":4},"times":{"App\\Tests\\Service\\SocieteVersionServiceTest::testSocieteVersionAddNoDate":0.535,"App\\Tests\\Service\\SocieteVersionServiceTest::testSocieteVersionAddNoSociete":0.066,"App\\Tests\\Service\\SocieteVersionServiceTest::testSocieteVersionAdd":0.046}}

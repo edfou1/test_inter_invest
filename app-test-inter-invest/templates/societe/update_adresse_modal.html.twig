@@ -1,0 +1,26 @@
+{% extends 'societe/add_adresse_modal.html.twig' %}
+
+{% block idModal %}updateAdresseModal{{ adresse.id }}{% endblock %}
+
+{% block action %}action="{{ url('app_update_adresse', { 'idAdresse': adresse.id }) }}"{% endblock %}
+{% block method %}method="PUT"{% endblock %}
+{% block data %}data-adresse-id="{{ adresse.id }}"{% endblock %}
+{% block idForm %}updateAdresseForm{{ adresse.id }}{% endblock %}
+{% block classForm %}class="update-adresse"{% endblock %}
+
+{% block idNumero %}updateAdresseNumero{{ adresse.id }}{% endblock %}
+{% block valueNumero %}value="{{ adresse.numero }}"{% endblock %}
+
+{% block idTypeVoie %}updateAdresseTypeVoie{{ adresse.id }}{% endblock %}
+{% block valueTypeVoie %}value="{{ adresse.type_voie }}"{% endblock %}
+
+{% block idNomVoie %}updateAdresseNomVoie{{ adresse.id }}{% endblock %}
+{% block valueNomVoie %}value="{{ adresse.nom_voie }}"{% endblock %}
+
+{% block idCp %}updateAdresseCp{{ adresse.id }}{% endblock %}
+{% block valueCp %}value="{{ adresse.cp }}"{% endblock %}
+
+{% block idVille %}updateAdresseVille{{ adresse.id }}{% endblock %}
+{% block valueVille %}value="{{ adresse.ville }}"{% endblock %}
+
+{% block idError %}updateAdresseError{{ adresse.id }}{% endblock %}

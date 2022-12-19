@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <button id="addModalButton" data-get-url="{{ url('app_get_formes_juridiques') }}" type="button" class="btn btn-primary col-3" data-bs-toggle="modal" data-bs-target="#addModal">
+        Ajouter une société
+    </button>
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel">Société</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url('app_add_societe') }}" method="POST" id="addSocieteForm">
+                        <label for="addFormeJuridique">Forme juridique:</label>
+                        <select id="addFormeJuridique" name="formeJuridique" class="form-select" form="addSocieteForm">
+                        </select>
+                        <label class="row" for="addNom">Nom:</label>
+                        <input class="form-control" type="text" id="addNom" name="nom" required>
+                        <label class="row" for="addSiren">Siren:</label>
+                        <input class="form-control" type="number" id="addSiren" name="siren" required>
+                        <label class="row" for="addVilleImmat">Ville d'immatriculation:</label>
+                        <input class="form-control" type="text" id="addVilleImmat" name="villeImmat" required>
+                        <label class="row" for="addDateImmat">Date d'immatriculation:</label>
+                        <input class="form-control" type="date" id="addDateImmat" name="dateImmat" required>
+                        <label class="row" for="addCapital">Capital:</label>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="number" id="addCapital" name="capital" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                    </form>
+                    <div class ="row pt-1" id="addError">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary col-2" data-bs-dismiss="modal">Annuler</button>
+                    <input type="submit" form="addSocieteForm" id="addSubmit" class="btn btn-primary col-2" value="Envoyer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

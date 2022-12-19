@@ -1,0 +1,28 @@
+<form action="{{ url('app_list_societe') }}" method="get" id="filterForm">
+    <div class="row justify-content-around p-2">
+        <div class="col-3">
+            <label for="pageSize">Nombre de résultats:</label>
+            <select id="pageSize" name="pageSize" class="form-select" form="filterForm">
+                {% for i in [2, 5, 10] %}
+                    {% if data.pageSize == i %}
+                        <option selected value="{{ i }}">{{ i }}</option>
+                    {% else %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-3">
+            <label for="filterNom">Nom:</label>
+            <input type="text" id="filterNom" style="width:100%" name="filterNom">
+        </div>
+        <div class="col-3">
+            <label for="filterSiren">Siren:</label>
+            <input type="text" id="filterSiren" style="width:100%" name="filterSiren">
+        </div>
+        <input type="hidden" id="page" name="page" value="1">
+        <div class="col-2 text-center align-self-center">
+            <input type="submit" value="afficher">
+        </div>
+    </div>
+</form>

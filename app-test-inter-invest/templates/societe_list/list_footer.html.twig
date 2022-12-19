@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <nav class="col-6 p-4" aria-label="...">
+        <ul class="pagination justify-content-center">
+            {% if data.page == 1 %}
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Previous" href="#" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a
+                            class="page-link"
+                            aria-label="Previous"
+                            href="{{ url('app_list_societe', { 'pageSize': data.pageSize, 'page': data.page-1, 'filterNom': data.filterNom, 'filterSiren': data.filterSiren }) }}"
+                    >
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% for i in 1..data.pageTotal %}
+                {% if i == data.page %}
+                    <li class="page-item active">
+                        <a class="page-link" href="#">{{ data.page }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a
+                                class="page-link"
+                                href="{{ url('app_list_societe', { 'pageSize': data.pageSize, 'page': i, 'filterNom': data.filterNom, 'filterSiren': data.filterSiren }) }}"
+                        >
+                            {{ i }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if data.page != data.pageTotal %}
+                <li class="page-item">
+                    <a
+                            class="page-link"
+                            aria-label="Next"
+                            href="{{ url('app_list_societe', { 'pageSize': data.pageSize, 'page': data.page+1, 'filterNom': data.filterNom, 'filterSiren': data.filterSiren }) }}"
+                    >
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
